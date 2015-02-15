@@ -47,6 +47,22 @@ describe('Optional.js', function() {
         	assert(optional instanceof OptionalConstructor);
         	assert.strictEqual(optional._value, undefined);
     	});
-
 	});
+
+    describe('implements instance methods', function() {
+
+        it('.get() returns value if present in Optional', function() {
+            var nonNullValue = 'a non-null value',
+                optional = Optional.of(nonNullValue);
+
+            assert.strictEqual(optional.get(), nonNullValue);
+        });
+
+        it('.get() throws an exception if Optional is empty', function() {
+            var emptyOptional = Optional.empty();
+
+            assert.throws(function() { emptyOptional.get(); }, /NoSuchElementException : Optional is empty/);
+        });
+
+    });
 });
