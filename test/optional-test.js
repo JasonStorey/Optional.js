@@ -189,5 +189,18 @@ describe('Optional.js', function() {
                 nonNullOptional.flatMap(function mapper(value) { return 'not an optional'; });
             }, /NullPointerException : mapper does not return an Optional/);
         });
+
+        it('.orElse() on non empty Optional, returns the value', function() {
+            var result = nonNullOptional.orElse('an orElse value');
+
+            assert.strictEqual(result, nonNullOptional.get());
+        });
+
+        it('.orElse() on empty Optional, returns the orElse value', function() {
+            var expectedResult = 'an orElse value',
+                result = emptyOptional.orElse(expectedResult);
+
+            assert.strictEqual(result, expectedResult);
+        });
     });
 });
