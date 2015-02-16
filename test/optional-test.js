@@ -219,5 +219,24 @@ describe('Optional.js', function() {
         it('.orElseGet() throws an exception if Optional is empty and provided value is not an Optional', function() {
             assert.throws(function() { emptyOptional.orElseGet('not an Optional'); }, /NullPointerException : provided value is not an Optional/);
         });
+
+        it('.orElseThrow() on non empty Optional, returns the value', function() {
+            var result = nonNullOptional.orElseThrow(function() { return new Error('an error to throw'); });
+            assert.strictEqual(result, nonNullOptional.get());
+        });
+
+        it('.orElseThrow() on empty Optional, throws exception returned by provided function', function() {
+            var expectedErrorMessage = 'an error to throw';
+            
+            assert.throws(function() {
+                emptyOptional.orElseThrow(function() { return new Error(expectedErrorMessage); });
+            }, expectedErrorMessage);
+        });
+
+        it('.orElseThrow() on empty Optional, throws an exception if exception provider is not a function', function() {            
+            assert.throws(function(){
+                emptyOptional.orElseThrow('not a function');
+            }, /NullPointerException : exception provider is not a function/);
+        });
     });
 });
