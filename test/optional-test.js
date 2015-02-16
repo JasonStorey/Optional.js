@@ -202,5 +202,22 @@ describe('Optional.js', function() {
 
             assert.strictEqual(result, expectedResult);
         });
+
+        it('.orElseGet() on non empty Optional, returns the value', function() {
+            var result = nonNullOptional.orElseGet(Optional.of('some other value'));
+
+            assert.strictEqual(result, nonNullOptional.get());
+        });
+
+        it('.orElseGet() on empty Optional, returns the value of the provided Optional', function() {
+            var expectedResult = 'some other value',
+                result = emptyOptional.orElseGet(Optional.of(expectedResult));
+
+            assert.strictEqual(result, expectedResult);
+        });
+
+        it('.orElseGet() throws an exception if Optional is empty and provided value is not an Optional', function() {
+            assert.throws(function() { emptyOptional.orElseGet('not an Optional'); }, /NullPointerException : provided value is not an Optional/);
+        });
     });
 });
