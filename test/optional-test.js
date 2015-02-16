@@ -238,5 +238,10 @@ describe('Optional.js', function() {
                 emptyOptional.orElseThrow('not a function');
             }, /NullPointerException : exception provider is not a function/);
         });
+
+        it('.hashCode() returns -1', function() {
+            // Here to complete the Java Optional API. Completely useless.
+            assert.strictEqual(nonNullOptional.hashCode(), -1);
+        });
     });
 });
