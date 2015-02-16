@@ -101,7 +101,28 @@ describe('Optional.js', function() {
         });
 
         it('.ifPresent() throws an exception if Optional contains a value and consumer is not a function', function() {
-            assert.throws(function() { nonNullOptional.ifPresent();}, /NullPointerException : consumer is not defined/);
+            assert.throws(function() { nonNullOptional.ifPresent();}, /NullPointerException : consumer is not a function/);
+        });
+
+        it('.filter() returns a new Optional describing the value if predicate returns true', function() {
+            var anotherOptional = nonNullOptional.filter(function predicate(value) { 
+                return value === nonNullValue;
+            });
+
+            assert(anotherOptional !== nonNullOptional);
+            assert.strictEqual(anotherOptional._value, nonNullValue);
+        });
+
+        it('.filter() returns an empty Optional if predicate returns false', function() {
+            var anotherEmptyOptional = nonNullOptional.filter(function predicate(value) { 
+                return value !== nonNullValue;
+            });
+
+            assert.strictEqual(anotherEmptyOptional._value, undefined);
+        });
+
+        it('.filter() throws an excpetion if predicate is not a function', function() {
+            assert.throws(function() { nonNullOptional.filter();}, /NullPointerException : predicate is not a function/);
         });
     });
 });
