@@ -101,16 +101,16 @@ describe('Optional.js', function() {
         });
 
         it('.ifPresent() throws an exception if Optional contains a value and consumer is not a function', function() {
-            assert.throws(function() { nonNullOptional.ifPresent();}, /NullPointerException : consumer is not a function/);
+            assert.throws(function() { nonNullOptional.ifPresent('not a function'); }, /NullPointerException : consumer is not a function/);
         });
 
         it('.filter() returns a new Optional describing the value if predicate returns true', function() {
-            var anotherOptional = nonNullOptional.filter(function predicate(value) { 
+            var filteredOptional = nonNullOptional.filter(function predicate(value) { 
                 return value === nonNullValue;
             });
 
-            assert(anotherOptional !== nonNullOptional);
-            assert.strictEqual(anotherOptional._value, nonNullValue);
+            assert(filteredOptional !== nonNullOptional);
+            assert.strictEqual(filteredOptional.get(), nonNullValue);
         });
 
         it('.filter() returns an empty Optional if predicate returns false', function() {
@@ -122,7 +122,39 @@ describe('Optional.js', function() {
         });
 
         it('.filter() throws an excpetion if predicate is not a function', function() {
-            assert.throws(function() { nonNullOptional.filter();}, /NullPointerException : predicate is not a function/);
+            assert.throws(function() { nonNullOptional.filter('not a function'); }, /NullPointerException : predicate is not a function/);
+        });
+
+        it('.map() on non empty Optional, returns a new Optional describing the mapped value, if mapper returns non-null value', function() {
+            var expectedValue = nonNullValue + 100,
+                mappedOptional = nonNullOptional.map(function(value) {
+                    return value += 100;
+                });
+
+            assert(mappedOptional !== nonNullOptional);
+            assert.strictEqual(mappedOptional.get(), expectedValue);
+        });
+
+        it('.map() on non empty Optional, returns an empty Optional, if mapper returns null value', function() {
+            var mappedEmptyOptional = nonNullOptional.map(function(value) {
+                    return null;
+                });
+
+            assert(mappedEmptyOptional instanceof OptionalConstructor);
+            assert.strictEqual(mappedEmptyOptional._value, undefined);
+        });
+
+        it('.map() on an empty Optional, returns an empty Optional', function() {
+            var mappedEmptyOptional = emptyOptional.map(function(value) {
+                    return 'any value';
+                });
+
+            assert(mappedEmptyOptional !== emptyOptional);
+            assert.strictEqual(mappedEmptyOptional._value, undefined);
+        });
+
+        it('.map() throws an excpetion if mapper is not a function', function() {
+            assert.throws(function() { nonNullOptional.map('not a function'); }, /NullPointerException : mapper is not a function/);
         });
     });
 });
