@@ -8,7 +8,7 @@ describe('Optional.js', function() {
         undefinedValue;
 
     beforeEach(function() {
-        nonNullValue = 'a non-null value';
+        nonNullValue = 100;
         nullValue = null;
         undefinedValue = undefined;
     });
@@ -53,15 +53,15 @@ describe('Optional.js', function() {
 	});
 
     describe('implements instance methods', function() {
-        var emptyOptional;
+        var emptyOptional,
+            nonNullOptional;
 
         beforeEach(function() {
             emptyOptional = Optional.empty();
+            nonNullOptional = Optional.of(nonNullValue);
         });
 
         it('.get() returns value if present in Optional', function() {
-            var nonNullOptional = Optional.of(nonNullValue);
-
             assert.strictEqual(nonNullOptional.get(), nonNullValue);
         });
 
@@ -70,13 +70,38 @@ describe('Optional.js', function() {
         });
 
         it('.isPresent() returns true if Optional contains value', function() {
-            var nonNullOptional = Optional.of(nonNullValue);
-
             assert(nonNullOptional.isPresent());
         });
 
         it('.isPresent() returns false if Optional is empty', function() {
             assert(!emptyOptional.isPresent());
+        });
+
+        it('.ifPresent() executes consumer with value if Optional contains value', function() {
+            var consumerCalled = false,
+                passedValue;
+
+            nonNullOptional.ifPresent(function consumer(value) { 
+                consumerCalled = true;
+                passedValue = value;
+            });
+
+            assert(consumerCalled);
+            assert.strictEqual(passedValue, nonNullValue);
+        });
+
+        it('.ifPresent() does not execute consumer if Optional is empty', function() {
+            var consumerCalled = false;
+
+            emptyOptional.ifPresent(function consumer(value) { 
+                consumerCalled = true;
+            });
+
+            assert(!consumerCalled);
+        });
+
+        it('.ifPresent() throws an exception if Optional contains a value and consumer is not a function', function() {
+            assert.throws(function() { nonNullOptional.ifPresent();}, /NullPointerException : consumer is not defined/);
         });
     });
 });
