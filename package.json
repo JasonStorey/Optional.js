@@ -22,18 +22,18 @@
     "url": "https://github.com/JasonStorey/Optional.js/issues"
   },
   "homepage": "https://github.com/JasonStorey/Optional.js",
+  "devDependencies": {
+    "browserify": "^8.1.3",
+    "mocha": "^2.1.0",
+    "uglify-js": "^2.4.16"
+  },
   "keywords": [
     "java",
-    "oracle"
+    "oracle",
     "optional",
     "functional",
     "null",
     "javascript",
     "lambda"
-  ],
-  "devDependencies": {
-    "browserify": "^8.1.3",
-    "mocha": "^2.1.0",
-    "uglify-js": "^2.4.16"
-  }
+  ]
 }
