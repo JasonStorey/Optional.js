@@ -29,7 +29,6 @@
     "functional",
     "null",
     "javascript",
-    "undefined",
     "lambda"
   ],
   "devDependencies": {
