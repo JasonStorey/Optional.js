@@ -1,8 +1,8 @@
 {
   "name": "Optional.js",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Java 8 Optionals for JS",
+  "main": "./index.js",
   "scripts": {
     "clean": "mkdir -p ./dist && rm -rf ./dist/*",
     "build": "npm run clean && browserify ./index.js --standalone Optional -o ./dist/optional.js",
@@ -12,8 +12,11 @@
     "type": "git",
     "url": "https://github.com/JasonStorey/Optional.js.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Jason A. Storey",
+    "url": "https://github.com/JasonStorey"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/JasonStorey/Optional.js/issues"
   },
