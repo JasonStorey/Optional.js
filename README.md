@@ -4,24 +4,48 @@ Optional.js brings [Java 8 Optionals](http://docs.oracle.com/javase/8/docs/api/j
 
 _A container object which may or may not contain a non-null value. If a value is present, isPresent() will return true and get() will return the value._
 
+## Installation
+
+via npm:
+``` bash
+npm install optional-js
+```
+
+## Usage
+
+node:
+``` javascript
+var Optional = require('optional-js');
+var emptyOptional = Optional.empty();
+```
+
+browser:
+``` html
+<script src="./dist/optional.js"></script>
+<script>
+// Optional is added to window
+var emptyOptional = Optional.empty();
+</script>
+```
+
 ## Building
 
-Download:
+download:
 ``` bash
 git clone git@github.com:JasonStorey/Optional.js.git
 ```
 
-Enter the directory, and install the dependencies:
+enter the directory, and install dependencies:
 ```bash
 cd Optional.js && npm install
 ```
 
-And build:
+build:
 ```bash
 npm run build
 ```
 
-Run the tests:
+run the tests:
 ```bash
 npm test
 ```
