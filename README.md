@@ -1,32 +1,69 @@
-# Optional.js
+Optional.js
+----------
 
-Optional.js brings [Java 8 Optionals](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) to javascript.
+Tired of checking if values are defined? Optional.js brings [Java 8 Optionals](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) to javascript.
 
-_A container object which may or may not contain a non-null value. If a value is present, isPresent() will return true and get() will return the value._
+_Optional: A container object which may or may not contain a non-null value._
 
-## Installation
+Features
+--------
+
+- Full Java 8 Optional API is supported
+- Runs in browser and node
+
+Installation
+------------
 
 via npm:
 ``` bash
 npm install optional-js
 ```
 
-## Usage
-
-node:
+then just require in node:
 ``` javascript
 var Optional = require('optional-js');
 var emptyOptional = Optional.empty();
 ```
 
-browser:
-``` html
-<script src="./dist/optional.js"></script>
-<script>
-// Optional is added to window
-var emptyOptional = Optional.empty();
-</script>
+or use the browser compatible build in `./dist`
+
+## Usage
+
+Full docs - [Java 8 Optionals](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
+
+JS Example:
+``` javascript
+// "login.js"
+
+var Optional = require('optional-js');
+
+// Here, we grab a potentially undefined value
+var userName = process.argv[2];
+
+// Now we wrap it in an Optional, and use the delicious, functional, sugary sweet API
+Optional.ofNullable(userName)
+        .map(getUserId)
+        .filter(verify)
+        .ifPresent(login);
+
+function getUserId(userName) {
+  return userName === 'root' ? 1887 : 0;
+}
+
+function verify(userId) {
+  return userId === 1887;
+}
+
+function login(userName) {
+  console.log('Logging in as : ' + userName);
+}
+
 ```
+Then, from the terminal...
+``` bash
+$ node login root
+"Logging in as : 1887"
+````
 
 ## Building
 
