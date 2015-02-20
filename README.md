@@ -47,15 +47,15 @@ Optional.ofNullable(userName)
         .ifPresent(login);
 
 function getUserId(userName) {
-  return userName === 'root' ? 1887 : 0;
+    return userName === 'root' ? 1887 : 0;
 }
 
 function verify(userId) {
-  return userId === 1887;
+    return userId === 1887;
 }
 
-function login(userName) {
-  console.log('Logging in as : ' + userName);
+function login(userId) {
+    console.log('Logging in as : ' + userId);
 }
 
 ```
