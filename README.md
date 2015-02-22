@@ -1,7 +1,7 @@
 Optional.js
 ----------
 
-Tired of checking if values are defined? Optional.js brings [Java 8 Optionals](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) to javascript.
+Tired of checking for undefined? Optional.js brings [Java 8 Optionals](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) to javascript.
 
 _Optional: A container object which may or may not contain a non-null value._
 
