@@ -3,6 +3,13 @@ Optional.js
 
 > A container object that wraps possible undefined values in JavaScript - inspired by [Java 8 Optionals] (http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
 
+``` javascript
+Optional.ofNullable(promptForUserName)
+        .map(getUserId)
+        .filter(verify)
+        .ifPresent(login);
+```
+
 # Features
 
 - Full Java 8 Optional API is supported
