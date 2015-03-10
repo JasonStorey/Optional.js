@@ -1,7 +1,7 @@
 Optional.js
 ===========
 
-> A container object that wraps possible undefined values in JavaScript - inspired by [Java 8 Optionals] (http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
+> A container object that wraps possible undefined values in JavaScript - inspired by [Java 8 Optionals ](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
 
 ``` javascript
 Optional.ofNullable(promptForUserName)
