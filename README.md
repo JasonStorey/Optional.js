@@ -1,22 +1,21 @@
 Optional.js
-----------
+===========
 
-Tired of checking for undefined? Optional.js brings [Java 8 Optionals](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) to javascript.
+> A container object for wrapping possible null values in JavaScript - inspired by (stolen from) [Java 8 Optionals](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
 
-_Optional: A container object which may or may not contain a non-null value._
-
-Features
---------
+# Features
 
 - Full Java 8 Optional API is supported
-- Runs in browser and node
+- Runs in browser and node environments
+- Lightweight and dependency-free (**<1.0 KB minified, gzipped**)
 
-Installation
-------------
+# Installation
+
+Download the [latest release](https://github.com/JasonStorey/Optional.js/releases) from GitHub or from [NPM](https://www.npmjs.com/package/optional-js)
 
 via npm:
 ``` bash
-npm install optional-js
+$ npm install optional-js
 ```
 
 then just require in node:
@@ -25,9 +24,9 @@ var Optional = require('optional-js');
 var emptyOptional = Optional.empty();
 ```
 
-or use the browser compatible build in `./dist`
+alternatively, use the browser compatible build in the `./dist` directory of the npm package
 
-## Usage
+# Usage
 
 Full docs - [Java 8 Optionals](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
 
@@ -65,7 +64,7 @@ $ node login root
 "Logging in as : 1887"
 ````
 
-## Building
+# Building
 
 download:
 ``` bash
