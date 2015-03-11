@@ -92,3 +92,15 @@ run the tests:
 ```bash
 npm test
 ```
+
+# Contributing
+
+Found a bug or missing feature? Please open an [issue](https://github.com/JasonStorey/Optional.js/issues)!
+
+Send your feedback. Send your pull requests. All contributions are appreciated!
+
+# Copyright and license
+
+Created and copyright (c) 2014-2015 by Jason A. Storey
+
+Optional.js may be freely distributed under the MIT license.
