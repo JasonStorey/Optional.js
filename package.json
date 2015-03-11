@@ -1,6 +1,6 @@
 {
   "name": "optional-js",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Java 8 Optionals for JS",
   "main": "./index.js",
   "scripts": {
