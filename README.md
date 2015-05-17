@@ -33,6 +33,8 @@ var emptyOptional = Optional.empty();
 
 alternatively, use the browser compatible build in the `./dist` directory of the npm package
 
+Not using a module loader? Include the script, and the browser global `Optional` will be added to window.
+
 # Usage
 
 Full docs - [Java 8 Optionals](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
