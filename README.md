@@ -55,11 +55,11 @@ Optional.ofNullable(userName)
         .ifPresent(login);
 
 function getUserId(userName) {
-    return userName === 'root' ? 1887 : 0;
+    return userName === 'root' ? 1234 : 0;
 }
 
 function verify(userId) {
-    return userId === 1887;
+    return userId === 1234;
 }
 
 function login(userId) {
@@ -70,7 +70,7 @@ function login(userId) {
 Then, from the terminal...
 ``` bash
 $ node login root
-"Logging in as : 1887"
+"Logging in as : 1234"
 ````
 
 # Building
