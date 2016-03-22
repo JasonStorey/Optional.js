@@ -137,6 +137,12 @@ describe('Optional.js', function () {
             }, /NullPointerException : predicate is not a function/);
         });
 
+        it('.filter() should not regard predicate if Optional is empty', function () {
+            emptyOptional.filter(function predicate(value) {
+                throw new Error('Predicate was invoked on empty Optional');
+            });
+        });
+
         it('.map() on non empty Optional, returns a new Optional describing the mapped value, if mapper returns non-null value', function () {
             var expectedValue = nonNullValue + 100,
                 mappedOptional = nonNullOptional.map(function (value) {
