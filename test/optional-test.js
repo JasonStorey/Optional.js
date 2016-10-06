@@ -212,6 +212,21 @@ describe('Optional.js', function () {
             }, /NullPointerException : mapper does not return an Optional/);
         });
 
+        it('.peek() on non empty Optional, peeks the value with no side effects', function () {
+            var expectedValue = nonNullOptional.get(),
+                result = nonNullOptional.peek(function (value) {
+                    return "something else";
+                });
+
+            assert.strictEqual(result.get(), expectedValue);
+        });
+
+        it('.peek() throws an exception if mapper is not a function', function () {
+            assert.throws(function () {
+                nonNullOptional.peek('not a function');
+            }, /NullPointerException : peeker is not a function/)
+        });
+
         it('.orElse() on non empty Optional, returns the value', function () {
             var result = nonNullOptional.orElse('an orElse value');
 
