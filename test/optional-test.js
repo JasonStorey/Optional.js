@@ -214,7 +214,7 @@ describe('Optional.js', function () {
 
         it('.peek() on non empty Optional, peeks the value with no side effects', function () {
             var expectedValue = nonNullOptional.get(),
-                result = nonNullOptional.peek(function (value) {
+                result = nonNullOptional.peek(function peeker(value) {
                     return "something else";
                 });
 
