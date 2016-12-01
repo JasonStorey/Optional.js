@@ -1,6 +1,6 @@
 {
   "name": "optional-js",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Java 8 Optionals for JS",
   "main": "./index.js",
   "scripts": {
@@ -29,6 +29,7 @@
   },
   "keywords": [
     "java",
+    "scala",
     "oracle",
     "optional",
     "functional",
@@ -37,6 +38,10 @@
     "lambda",
     "optionals",
     "nullable",
-    "ifPresent"
+    "ifPresent",
+    "try",
+    "catch",
+    "ofNullable",
+    "throw"
   ]
 }
