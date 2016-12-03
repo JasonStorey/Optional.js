@@ -227,9 +227,9 @@ describe('Optional.js', function () {
             }, /NullPointerException : peeker is not a function/)
         });
 
-        it('.peekEmpty() on non empty Optional, peeks the value with no side effects', function () {
+        it('.peekEmpty() on empty Optional, peeks with no side effects', function () {
             var emptyOptional = Optional.empty();
-            var result = emptyOptional.peekEmpty(function peeker(value) {
+            var result = emptyOptional.peekEmpty(function peeker() {
                 return "some value";
             });
 
