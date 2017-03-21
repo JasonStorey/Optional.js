@@ -21,7 +21,7 @@ describe('Optional.js', function () {
             assert(emptyOptional instanceof OptionalConstructor);
             assert.strictEqual(emptyOptional._value, undefined);
         });
-
+       
         it('.of() returns an Optional describing the specified non-null value', function () {
             var optional = Optional.of(nonNullValue);
 
@@ -310,6 +310,43 @@ describe('Optional.js', function () {
         it('.hashCode() returns -1', function () {
             // Here to complete the Java Optional API. Completely useless.
             assert.strictEqual(nonNullOptional.hashCode(), -1);
+        });
+        
+        
+        it('.isPresent() returns false for Optional instance with value function returns nothing', function () {
+            var optional = Optional.ofNullable(function(){
+              return void 0;
+            });
+
+            assert(optional instanceof OptionalConstructor);
+            assert.strictEqual(optional.isPresent(), false);
+        });
+        
+        it('.getValue() should return value from function', function () {
+            var optional = Optional.ofNullable((function(){
+              var counter = 0;
+              return function (){
+                return counter += 1;
+              };
+            })());
+
+            assert(optional instanceof OptionalConstructor);
+            assert.strictEqual(optional.getValue(), 1);
+            assert.strictEqual(optional.getValue(), 2);
+            assert.strictEqual(optional.getValue(), 3);
+            
+        });
+
+        it('.getValue() should throw exception if optional function returns undefined or null', function () {
+            var optional = Optional.ofNullable(function(){
+              return void 0;
+            });
+
+            assert(optional instanceof OptionalConstructor);
+            assert.throws(function () {
+                emptyOptional.get();
+            }, /NoSuchElementException : Optional is empty/);
+            
         });
     });
 });
