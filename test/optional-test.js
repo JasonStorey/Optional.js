@@ -215,7 +215,7 @@ describe('Optional.js', function () {
         it('.peek() on non empty Optional, peeks the value with no side effects', function () {
             var expectedValue = nonNullOptional.get(),
                 result = nonNullOptional.peek(function peeker(value) {
-                    return "something else";
+                    return 'something else';
                 });
 
             assert.strictEqual(result.get(), expectedValue);
@@ -327,8 +327,8 @@ describe('Optional.js', function () {
                 }
             );
 
-            assert(consumerCalled, "The consumer should have been called since the value was present");
-            assert(!elseCallableCalled, "The else callable should not have been called since the value was present");
+            assert(consumerCalled, 'The consumer should have been called since the value was present');
+            assert(!elseCallableCalled, 'The else callable should not have been called since the value was present');
             assert.strictEqual(passedValue, nonNullValue);
         });
 
@@ -347,8 +347,8 @@ describe('Optional.js', function () {
                 }
             );
 
-            assert(!consumerCalled, "The consumer should not have been called");
-            assert(elseCallableCalled, "else callable should have been called");
+            assert(!consumerCalled, 'The consumer should not have been called');
+            assert(elseCallableCalled, 'else callable should have been called');
         });
 
         it('.or() returns the first optional when it is not null', function () {
@@ -356,7 +356,7 @@ describe('Optional.js', function () {
                 return Optional.empty();
             });
 
-            assert(actualOptional.isPresent(), "The value should be present");
+            assert(actualOptional.isPresent(), 'The value should be present');
             assert.equal(actualOptional.get(), 'i should be returned',
                 'the value of the optional should be the value of the first optional since it was non-null');
         });
@@ -366,7 +366,7 @@ describe('Optional.js', function () {
                 return Optional.of('i should be returned')
             });
 
-            assert(actualOptional.isPresent(), "The value should be present");
+            assert(actualOptional.isPresent(), 'The value should be present');
             assert.equal(actualOptional.get(), 'i should be returned',
                 'the value of the optional should be the value of the second optional since it was non-null and the first was null');
         });
