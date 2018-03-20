@@ -1,7 +1,9 @@
+[![npm version](https://badge.fury.io/js/optional-js.svg)](https://badge.fury.io/js/optional-js) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Optional.js
 ===========
 
-> A container object that wraps possible undefined values in JavaScript - inspired by [Java 8 Optionals ](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
+> A container object that wraps possible undefined values in JavaScript - inspired by [Java Optionals](https://docs.oracle.com/javase/9/docs/api/java/util/Optional.html)
 
 ``` javascript
 Optional.ofNullable(promptForUserName)
@@ -12,7 +14,7 @@ Optional.ofNullable(promptForUserName)
 
 # Features
 
-- Full Java 8 Optional API is supported
+- Full Java 8 Optional API is supported, and partial Java 9 API implemented (everything minus stream())
 - Runs in browser and node environments
 - Lightweight and dependency-free (**<1.0 KB minified, gzipped**)
 
@@ -37,7 +39,7 @@ Not using a module loader? Include the script, and the browser global `Optional`
 
 # Usage
 
-Full docs - [Java 8 Optionals](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
+Full docs - [Java 9 Optionals](https://docs.oracle.com/javase/9/docs/api/java/util/Optional.html)
 
 JS Example:
 ``` javascript
@@ -103,6 +105,6 @@ Send your feedback. Send your pull requests. All contributions are appreciated!
 
 # Copyright and license
 
-Created and copyright (c) 2014-2015 by Jason A. Storey
+Created and copyright (c) 2014-2018 by Jason A. Storey
 
 Optional.js may be freely distributed under the MIT license.

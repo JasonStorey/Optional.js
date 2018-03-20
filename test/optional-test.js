@@ -311,5 +311,64 @@ describe('Optional.js', function () {
             // Here to complete the Java Optional API. Completely useless.
             assert.strictEqual(nonNullOptional.hashCode(), -1);
         });
+
+        it('.ifPresentOrElse() if value is present calls the consumer and not the else callable', function () {
+            var consumerCalled = false,
+                elseCallableCalled = false,
+                passedValue;
+
+            nonNullOptional.ifPresentOrElse(
+                function consumer(value) {
+                    consumerCalled = true;
+                    passedValue = value;
+                },
+                function elseCallable() {
+                    elseCallableCalled = true;
+                }
+            );
+
+            assert(consumerCalled, "The consumer should have been called since the value was present");
+            assert(!elseCallableCalled, "The else callable should not have been called since the value was present");
+            assert.strictEqual(passedValue, nonNullValue);
+        });
+
+        it('.ifPresentOrElse() if value is not present calls the else callable and not the consumer', function () {
+            var consumerCalled = false,
+                elseCallableCalled = false,
+                passedValue;
+
+            emptyOptional.ifPresentOrElse(
+                function consumer(value) {
+                    consumerCalled = true;
+                    passedValue = value;
+                },
+                function elseCallable() {
+                    elseCallableCalled = true;
+                }
+            );
+
+            assert(!consumerCalled, "The consumer should not have been called");
+            assert(elseCallableCalled, "else callable should have been called");
+        });
+
+        it('.or() returns the first optional when it is not null', function () {
+            var actualOptional = Optional.ofNullable('i should be returned').or(function () {
+                return Optional.empty();
+            });
+
+            assert(actualOptional.isPresent(), "The value should be present");
+            assert.equal(actualOptional.get(), 'i should be returned',
+                'the value of the optional should be the value of the first optional since it was non-null');
+        });
+
+        it('.or() returns the second optional when the first is null', function () {
+            var actualOptional = Optional.ofNullable(null).or(function () {
+                return Optional.of('i should be returned')
+            });
+
+            assert(actualOptional.isPresent(), "The value should be present");
+            assert.equal(actualOptional.get(), 'i should be returned',
+                'the value of the optional should be the value of the second optional since it was non-null and the first was null');
+        });
     });
 });
