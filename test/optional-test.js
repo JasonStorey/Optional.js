@@ -240,23 +240,10 @@ describe('Optional.js', function () {
             assert.strictEqual(result, expectedResult);
         });
 
-        it('.orElseGet() on non empty Optional, returns the value when provided an object that implements .get()', function () {
-            var result = nonNullOptional.orElseGet(Optional.of('some other value'));
-
-            assert.strictEqual(result, nonNullOptional.get());
-        });
-
         it('.orElseGet() on non empty Optional, returns the value when provided a supplier function', function () {
             var result = nonNullOptional.orElseGet(function supplier() { return 'some other value'; });
 
             assert.strictEqual(result, nonNullOptional.get());
-        });
-
-        it('.orElseGet() on empty Optional, returns the result of calling .get() on the provided object', function () {
-            var expectedResult = 'some other value',
-                result = emptyOptional.orElseGet(Optional.of('some other value'));
-
-            assert.strictEqual(result, expectedResult);
         });
 
         it('.orElseGet() on empty Optional, returns the result of calling the provided supplier function', function () {
@@ -266,22 +253,16 @@ describe('Optional.js', function () {
             assert.strictEqual(result, expectedResult);
         });
 
-        it('.orElseGet() throws an exception if Optional is empty and provided supplier does not implement .get()', function () {
-            assert.throws(function () {
-                emptyOptional.orElseGet({get:'not a supplier function'});
-            }, /provided supplier does not implement \.get\(\)/);
-        });
-
         it('.orElseGet() throws an exception if Optional is empty and provided supplier is not a function', function () {
             assert.throws(function () {
                 emptyOptional.orElseGet('not a supplier function');
-            }, /provided supplier does not implement \.get\(\)/);
+            }, /supplier is not a function/);
         });
 
         it('.orElseGet() throws an exception if Optional is empty and provided supplier is undefined', function () {
             assert.throws(function () {
                 emptyOptional.orElseGet(undefinedValue);
-            }, /provided supplier does not implement \.get\(\)/);
+            }, /supplier is not a function/);
         });
 
         it('.orElseThrow() on non empty Optional, returns the value', function () {
