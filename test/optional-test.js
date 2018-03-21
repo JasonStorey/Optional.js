@@ -32,13 +32,13 @@ describe('Optional.js', function () {
         it('.of() throws an exception if value is not defined', function () {
             assert.throws(function () {
                 Optional.of(undefinedValue);
-            }, /NullPointerException : value is not defined/);
+            }, /value is not defined/);
         });
 
         it('.of() throws an exception if value is null', function () {
             assert.throws(function () {
                 Optional.of(nullValue);
-            }, /NullPointerException : value is not defined/);
+            }, /value is not defined/);
         });
 
         it('.ofNullable() returns an Optional describing the specified non-null value', function () {
@@ -72,7 +72,7 @@ describe('Optional.js', function () {
         it('.get() throws an exception if Optional is empty', function () {
             assert.throws(function () {
                 emptyOptional.get();
-            }, /NoSuchElementException : Optional is empty/);
+            }, /optional is empty/);
         });
 
         it('.isPresent() returns true if Optional contains value', function () {
@@ -109,7 +109,7 @@ describe('Optional.js', function () {
         it('.ifPresent() throws an exception if Optional contains a value and consumer is not a function', function () {
             assert.throws(function () {
                 nonNullOptional.ifPresent('not a function');
-            }, /NullPointerException : consumer is not a function/);
+            }, /consumer is not a function/);
         });
 
         it('.filter() returns a new Optional describing the value if predicate returns true', function () {
@@ -134,7 +134,7 @@ describe('Optional.js', function () {
         it('.filter() throws an exception if predicate is not a function', function () {
             assert.throws(function () {
                 nonNullOptional.filter('not a function');
-            }, /NullPointerException : predicate is not a function/);
+            }, /predicate is not a function/);
         });
 
         it('.filter() should not regard predicate if Optional is empty', function () {
@@ -176,7 +176,7 @@ describe('Optional.js', function () {
         it('.map() throws an exception if mapper is not a function', function () {
             assert.throws(function () {
                 nonNullOptional.map('not a function');
-            }, /NullPointerException : mapper is not a function/);
+            }, /mapper is not a function/);
         });
 
         it('.flatMap() on non empty Optional, returns result of mapper', function () {
@@ -201,7 +201,7 @@ describe('Optional.js', function () {
         it('.flatMap() throws an exception if mapper is not a function', function () {
             assert.throws(function () {
                 nonNullOptional.flatMap('not a function');
-            }, /NullPointerException : mapper is not a function/);
+            }, /mapper is not a function/);
         });
 
         it('.flatMap() throws an exception if mapper does not return an Optional', function () {
@@ -209,7 +209,7 @@ describe('Optional.js', function () {
                 nonNullOptional.flatMap(function mapper(value) {
                     return 'not an optional';
                 });
-            }, /NullPointerException : mapper does not return an Optional/);
+            }, /mapper does not return an Optional/);
         });
 
         it('.peek() on non empty Optional, peeks the value with no side effects', function () {
@@ -224,7 +224,7 @@ describe('Optional.js', function () {
         it('.peek() throws an exception if mapper is not a function', function () {
             assert.throws(function () {
                 nonNullOptional.peek('not a function');
-            }, /NullPointerException : peeker is not a function/)
+            }, /peeker is not a function/)
         });
 
         it('.orElse() on non empty Optional, returns the value', function () {
@@ -269,19 +269,19 @@ describe('Optional.js', function () {
         it('.orElseGet() throws an exception if Optional is empty and provided supplier does not implement .get()', function () {
             assert.throws(function () {
                 emptyOptional.orElseGet({get:'not a supplier function'});
-            }, /NullPointerException : provided supplier does not implement \.get\(\)/);
+            }, /provided supplier does not implement \.get\(\)/);
         });
 
         it('.orElseGet() throws an exception if Optional is empty and provided supplier is not a function', function () {
             assert.throws(function () {
                 emptyOptional.orElseGet('not a supplier function');
-            }, /NullPointerException : provided supplier does not implement \.get\(\)/);
+            }, /provided supplier does not implement \.get\(\)/);
         });
 
         it('.orElseGet() throws an exception if Optional is empty and provided supplier is undefined', function () {
             assert.throws(function () {
                 emptyOptional.orElseGet(undefinedValue);
-            }, /NullPointerException : provided supplier does not implement \.get\(\)/);
+            }, /provided supplier does not implement \.get\(\)/);
         });
 
         it('.orElseThrow() on non empty Optional, returns the value', function () {
@@ -304,7 +304,7 @@ describe('Optional.js', function () {
         it('.orElseThrow() on empty Optional, throws an exception if exception provider is not a function', function () {
             assert.throws(function () {
                 emptyOptional.orElseThrow('not a function');
-            }, /NullPointerException : exception provider is not a function/);
+            }, /exception provider is not a function/);
         });
 
         it('.hashCode() returns -1', function () {
