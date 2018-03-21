@@ -6,7 +6,7 @@ module.exports = {
     },
     of: function of(value) {
         if (value === undefined || value === null) {
-            throw new Error('NullPointerException : value is not defined');
+            throw new Error('value is not defined');
         }
         return new Optional(value);
     },
