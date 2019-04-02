@@ -34,7 +34,7 @@ export default class Optional<T> {
    * @return the non-null value held by this Optional
    * @throws Error if the value is null;
    */
-  get(): T | null | undefined;
+  get(): T;
 
   /**
    * Return true if there is a value present, otherwise false.
