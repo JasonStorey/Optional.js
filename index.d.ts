@@ -19,7 +19,7 @@ export default class Optional<T> {
    * @return an Optional with the value present
    * @throws Error if value is null
    */
-  static of<T>(value: T | null | undefined): Optional<T>;
+  static of<T>(value: T): Optional<T>;
 
   /**
    * Returns an empty Optional instance. No value is present for this Optional.
