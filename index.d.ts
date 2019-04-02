@@ -1,6 +1,6 @@
 export default class Optional<T> {
   private readonly _value;
-  constructor(value?: T | null | undefined);
+  private constructor(value?: T | null | undefined);
 
   /**
    * Returns an Optional describing the given value, if non-null, otherwise returns an empty Optional.
