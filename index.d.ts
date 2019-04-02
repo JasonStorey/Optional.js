@@ -26,7 +26,7 @@ export default class Optional<T> {
    *
    * @return an empty Optional
    */
-  static empty(): Optional<null>;
+  static empty<T>(): Optional<T>;
 
   /**
    * If a value is present in this Optional, returns the value, otherwise throws an Error.
