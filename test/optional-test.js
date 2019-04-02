@@ -273,13 +273,11 @@ describe('Optional.js', function () {
         });
 
         it('.orElseThrow() on empty Optional, throws exception returned by provided function', function () {
-            var expectedErrorMessage = 'an error to throw';
-
             assert.throws(function () {
                 emptyOptional.orElseThrow(function () {
-                    return new Error(expectedErrorMessage);
+                    return new Error('an error to throw');
                 });
-            }, expectedErrorMessage);
+            }, /an error to throw/);
         });
 
         it('.orElseThrow() on empty Optional, throws an exception if exception provider is not a function', function () {
