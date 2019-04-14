@@ -105,6 +105,6 @@ Send your feedback. Send your pull requests. All contributions are appreciated!
 
 # Copyright and license
 
-Created and copyright (c) 2014-2018 by Jason A. Storey
+Created and copyright (c) 2014-2019 by Jason A. Storey
 
 Optional.js may be freely distributed under the MIT license.
