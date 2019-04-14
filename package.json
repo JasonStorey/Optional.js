@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "Java 8 Optionals for JS",
   "main": "./index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "clean": "mkdir -p ./dist && rm -rf ./dist/*",
     "build": "npm run clean && browserify ./index.js --standalone Optional -o ./dist/optional.js && npm run minify",
