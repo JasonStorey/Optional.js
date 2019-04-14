@@ -39,7 +39,8 @@ Not using a module loader? Include the script, and the browser global `Optional`
 
 # Usage
 
-Full docs - [Java 9 Optionals](https://docs.oracle.com/javase/9/docs/api/java/util/Optional.html)
+Java docs - [Java 9 Optionals](https://docs.oracle.com/javase/9/docs/api/java/util/Optional.html)  
+TSDocs - [index.d.ts](https://github.com/JasonStorey/Optional.js/blob/master/index.d.ts)
 
 JS Example:
 ``` javascript
