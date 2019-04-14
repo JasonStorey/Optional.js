@@ -3,7 +3,7 @@
 Optional.js
 ===========
 
-> A container object that wraps possible undefined values in JavaScript - inspired by [Java Optionals](https://docs.oracle.com/javase/9/docs/api/java/util/Optional.html)
+> A container object that wraps possibly undefined values in JavaScript - inspired by [Java Optionals](https://docs.oracle.com/javase/9/docs/api/java/util/Optional.html)
 
 ``` javascript
 Optional.ofNullable(promptForUserName)
@@ -14,9 +14,11 @@ Optional.ofNullable(promptForUserName)
 
 # Features
 
+- Runs in browser and Node
 - Full Java 8 Optional API is supported, and partial Java 9 API implemented (everything minus stream())
-- Runs in browser and node environments
-- Lightweight and dependency-free (**<1.0 KB minified, gzipped**)
+- Zero dependencies
+- TypeScript type definitions included
+- Lightweight (**<1.0 KB minified, gzipped**)
 
 # Installation
 
@@ -29,8 +31,8 @@ $ npm install optional-js
 
 then just require in node:
 ``` javascript
-var Optional = require('optional-js');
-var emptyOptional = Optional.empty();
+const Optional = require('optional-js');
+const emptyOptional = Optional.empty();
 ```
 
 alternatively, use the browser compatible build in the `./dist` directory of the npm package
@@ -46,33 +48,30 @@ JS Example:
 ``` javascript
 // "login.js"
 
-var Optional = require('optional-js');
+const Optional = require('optional-js');
 
-// Here, we grab a potentially undefined value
-var userName = process.argv[2];
+// Define some simple operations
+const getUserId = 
+    username => username === 'root' ? 1234 : 0;
 
-// Now we wrap it in an Optional, and use the delicious, functional, sugary sweet API
-Optional.ofNullable(userName)
+const verify = 
+    userId => userId === 1234;
+
+const login = 
+    userId => console.log('Logging in as : ' + userId);
+    
+// Declare a potentially undefined value
+const username = process.argv[2];
+
+// Wrap username in an Optional, and build a pipeline using our operations
+Optional.ofNullable(username)
         .map(getUserId)
         .filter(verify)
         .ifPresent(login);
-
-function getUserId(userName) {
-    return userName === 'root' ? 1234 : 0;
-}
-
-function verify(userId) {
-    return userId === 1234;
-}
-
-function login(userId) {
-    console.log('Logging in as : ' + userId);
-}
-
 ```
 Then, from the terminal...
 ``` bash
-$ node login root
+$ node login.js root
 "Logging in as : 1234"
 ````
 
@@ -93,6 +92,8 @@ build:
 npm run build
 ```
 
+# Testing
+
 run the tests:
 ```bash
 npm test
@@ -104,8 +105,6 @@ Found a bug or missing feature? Please open an [issue](https://github.com/JasonS
 
 Send your feedback. Send your pull requests. All contributions are appreciated!
 
-# Copyright and license
+# License
 
-Created and copyright (c) 2014-2019 by Jason A. Storey
-
-Optional.js may be freely distributed under the MIT license.
+Optional.js may be freely distributed under the MIT license - [LICENSE](https://github.com/JasonStorey/Optional.js/blob/master/LICENSE)

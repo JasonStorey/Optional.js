@@ -1,7 +1,7 @@
 {
   "name": "optional-js",
-  "version": "2.1.0",
-  "description": "Java 8 Optionals for JS",
+  "version": "2.1.1",
+  "description": "Optionals for JS - wrapper for possibly undefined values, inspired by Java Optional API",
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
@@ -23,20 +23,8 @@
     "uglify-js": "^3.3.16"
   },
   "keywords": [
-    "java",
-    "scala",
-    "oracle",
     "optional",
-    "functional",
-    "null",
-    "javascript",
-    "lambda",
-    "optionals",
-    "nullable",
-    "ifPresent",
-    "try",
-    "catch",
-    "ofNullable",
-    "throw"
+    "java",
+    "javascript"
   ]
 }
