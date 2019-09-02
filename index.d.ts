@@ -60,7 +60,7 @@ export default class Optional<T> {
      * predicate, otherwise an empty Optional
      * @throws Error if the predicate is null
      */
-    filter(predicate: (value: T) => boolean): Optional<T | null | undefined>;
+    filter(predicate: (value: T) => boolean): Optional<T>;
 
     /**
      * If a value is present, apply the provided mapping function to it, and if the result is non-null,
