@@ -1,6 +1,6 @@
 {
   "name": "optional-js",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Optionals for JS - wrapper for possibly undefined values, inspired by Java Optional API",
   "main": "./index.js",
   "types": "./index.d.ts",
