@@ -179,6 +179,24 @@ describe('Optional.js', function () {
             }, /mapper is not a function/);
         });
 
+        it('.flatMap() on empty array', function () {
+            var expectedValue = [],
+                result = nonNullOptional.flatMap(function (value) {
+                    return [];
+                });
+
+            assert.deepEqual(result, expectedValue);
+        });
+
+        it('.flatMap() on non-empty array', function () {
+            var expectedValue = [1,2,3],
+                result = nonNullOptional.flatMap(function (value) {
+                    return [1,2,3];
+                });
+
+            assert.deepEqual(result, expectedValue);
+        });
+
         it('.flatMap() on non empty Optional, returns result of mapper', function () {
             var expectedValue = nonNullValue + 100,
                 result = nonNullOptional.flatMap(function (value) {
