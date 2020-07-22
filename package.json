@@ -1,6 +1,6 @@
 {
   "name": "optional-js",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Optionals for JS - wrapper for possibly undefined values, inspired by Java Optional API",
   "main": "./index.js",
   "types": "./index.d.ts",
@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/JasonStorey/Optional.js",
   "devDependencies": {
-    "browserify": "^16.1.1",
-    "mocha": "^5.0.4",
-    "uglify-js": "^3.3.16"
+    "browserify": "^16.5.1",
+    "mocha": "^8.0.1",
+    "uglify-js": "^3.10.0"
   },
   "keywords": [
     "optional",
