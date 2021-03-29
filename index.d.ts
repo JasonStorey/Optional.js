@@ -13,6 +13,12 @@ export default class Optional<T> {
     static ofNullable<T>(value: T | undefined | null): Optional<T>;
 
     /**
+     * Sets a function for hashCode computation.
+     * @param computeHashCode function for computing a hashcode
+     */
+    static setComputeHashCode(computeHashCode: (value: unknown) => number): void;
+
+    /**
      * Returns an Optional describing the given non-null value.
      *
      * @typeparam T the type of the value
