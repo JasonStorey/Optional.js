@@ -88,6 +88,15 @@ export default class Optional<T> {
     flatMap<U>(mapper: (value: T) => Optional<U> | undefined | null): Optional<U>;
 
     /**
+     * If a value is present, apply the provided function to It ignoring the result.
+     * Return a new Optional made of the internal value or an empty one otherwise.
+     *
+     * @param peeker a peeker function to apply to the value
+     * @return a new Optional of the internal value or an empty one if value is null or undefined
+     * @throws Error if mapping function is null
+     */
+    peek(peeker: (value: T) => void): Optional<T>;
+    /**
      * If a value is present, returns the value, otherwise returns other.
      *
      * @param other the value to be returned, if no value is present. May be null.
