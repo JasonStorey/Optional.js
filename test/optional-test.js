@@ -287,8 +287,17 @@ describe('Optional.js', function () {
         });
 
         it('.hashCode() returns -1', function () {
-            // Here to complete the Java Optional API. Completely useless.
+            // Here to complete the Java Optional API. Temporary useless.
             assert.strictEqual(nonNullOptional.hashCode(), -1);
+        });
+
+        it('.hashCode() returns hashcode', function () {
+            var memoHashCode = OptionalConstructor.computeHashCode;
+            Optional.setComputeHashCode(function() {
+                return 42;
+            });
+            assert.strictEqual(nonNullOptional.hashCode(), 42);
+            Optional.setComputeHashCode(memoHashCode);
         });
 
         it('.ifPresentOrElse() if value is present calls the consumer and not the else callable', function () {

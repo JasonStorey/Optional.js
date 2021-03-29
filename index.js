@@ -12,5 +12,8 @@ module.exports = {
     },
     ofNullable: function ofNullable(value) {
         return new Optional(value);
+    },
+    setComputeHashCode: function setComputeHashCode(computeHashCode) {
+        Optional.computeHashCode = computeHashCode;
     }
 };
